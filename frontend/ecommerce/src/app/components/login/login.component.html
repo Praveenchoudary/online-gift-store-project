@@ -1,0 +1,66 @@
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form [formGroup]="customerFormGroup" (ngSubmit)="onSubmit()">
+                <div formGroupName="customer">
+                    <h3>Login</h3>
+                    <hr />
+
+                     <div class="my-3">
+                        <label class="col-form-label col-3">Email:</label>
+                        
+                            <input
+                            type="text"
+                            class="form-control"
+                            formControlName="email"
+                            />
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)
+                            "
+                            class="alert alert-danger"
+                            >
+                            <div *ngIf="email.errors?.['required']">
+                            Email is required.
+                            </div>
+
+                        </div>
+                        
+                     </div>
+
+                     <div class="my-3">
+                        <label class="col-form-label col-3">Password:</label>
+                        
+                            <input
+                            type="password"
+                            class="form-control"
+                            formControlName="password"
+                            />
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)
+                            "
+                            class="alert alert-danger"
+                            >
+                            <div *ngIf="password.errors?.['required']">
+                                Password is required.
+                            </div>
+
+                            <div *ngIf="password.errors?.['pattern']">
+                                Invalid Password
+                            </div>
+                        </div>
+                        
+                     </div>
+
+                     
+
+                </div>
+                <!--Submit button-->
+                <div style="float: left">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+                <div style="float: right">
+                    New Customer?
+                    <a routerLink="/register" class="btn btn-primary">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: blueviolet;">
+  <div class="container-fluid" style="background-color: goldenrod;padding: 30px;">
+    <a class="navbar-brand" href="#"><i class="fa-solid fa-gifts"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/contact-us">ContactUs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about-us">AboutUs</a>
+        </li>
+      
+        <app-product-category-menu></app-product-category-menu>
+       <app-search></app-search>
+
+
+       <li class="nav-item" *ngIf=" !isLoggedIn()">
+        <a class="nav-link" routerLink="/register">Register</a>
+      </li>
+      <li class="nav-item" *ngIf=" !isLoggedIn()">
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a class="nav-link">welcome...{{ getUserName() }}</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a class="nav-link" routerLink=""(click) = "logout()">Logout</a>
+      </li>
+      
+
+
+
+      </ul>
+      <ul class="navbar-nav mr-sm-2">
+        <app-cart-status></app-cart-status>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

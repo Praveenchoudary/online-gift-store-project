@@ -1,0 +1,33 @@
+<div class ="container-fluid">
+    <div *ngIf ="products.length === 0" class="alert alert-danger">
+         No products found!</div>
+    <div class="row">
+        <div *ngFor="let product of products" 
+        class ="col-lg-3 col-md-4 col-sm-2 ">
+        
+         
+            <div class = "card m-2">
+                <a 
+        routerLink="/products/{{ product.id }}" style = "text-decoration: none">
+                <img [src]="product.imageUrl" 
+                [alt]="product.imageUrl" 
+                class="card-img-top img-responsive"
+                style= "width:150px"/>
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ product.name | uppercase }}
+                    </h5>
+                    <p class="card-text">
+                        {{ product.unitPrice | currency:"INR"}}
+                    </p>
+                    <button (click)="addToCart(product)" class="btn btn-primary btn-sm">
+                    Add To cart
+                </button>
+                </div>
+
+            </div>
+    
+        </div>
+    </div>
+</div>

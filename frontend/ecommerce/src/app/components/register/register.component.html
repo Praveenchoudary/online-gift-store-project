@@ -1,0 +1,137 @@
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form [formGroup]="customerFormGroup" (ngSubmit)="onSubmit()">
+                <div formGroupName="customer">
+                    <h3>Registeration</h3>
+                    <hr />
+                    <!-- First Name-->
+                     <div class="my-3">
+                        <label class="col-form-label col-3">First Name:</label>
+                        
+                            <input
+                            type="text"
+                            class="form-control"
+                            formControlName="firstName"
+                            />
+                            <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)
+                            "
+                            class="alert alert-danger"
+                            >
+                            <div *ngIf="firstName?.errors?.['required']">
+                                First Name is required.
+                            </div>
+
+                            <div *ngIf="firstName?.errors?.['pattern']">
+                                Only alphabets are required
+                            </div>
+
+                        </div>
+                        
+                     </div>
+
+
+
+                     <div class="my-3">
+                        <label class="col-form-label col-3">Last Name:</label>
+                        
+                            <input
+                            type="text"
+                            class="form-control"
+                            formControlName="lastName"
+                            />
+                            <div *ngIf="lastName.invalid && (lastName?.dirty || lastName.touched)
+                            "
+                            class="alert alert-danger"
+                            >
+                            <div *ngIf="lastName.errors?.['required']">
+                                Last Name is required.
+                            </div>
+
+                            <div *ngIf="lastName.errors?.['pattern']">
+                                Only alphabets are required
+                            </div>
+                        </div>
+                        
+                     </div>
+
+                     <div class="my-3">
+                        <label class="col-form-label col-3">Email:</label>
+                        
+                            <input
+                            type="text"
+                            class="form-control"
+                            formControlName="email"
+                            />
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)
+                            "
+                            class="alert alert-danger"
+                            >
+                            <div *ngIf="email.errors?.['required']">
+                            Email is required.
+                            </div>
+
+                            <div *ngIf="email.errors?.['email']">
+                            Invalid Emailid
+                            </div>
+                        </div>
+                        
+                     </div>
+
+                     <div class="my-3">
+                        <label class="col-form-label col-3">Password:</label>
+                        
+                            <input
+                            type="password"
+                            class="form-control"
+                            formControlName="password"
+                            />
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)
+                            "
+                            class="alert alert-danger"
+                            >
+                            <div *ngIf="password.errors?.['required']">
+                                Password is required.
+                            </div>
+
+                            <div *ngIf="password.errors?.['pattern']">
+                                Invalid Password
+                            </div>
+                        </div>
+                        
+                     </div>
+
+                     <div class="my-3">
+                        <label class="col-form-label col-3">Mobile:</label>
+                        
+                            <input
+                            type="number"
+                            class="form-control"
+                            formControlName="mobile"
+                            />
+                            <div *ngIf="mobile.invalid && (mobile?.dirty || mobile.touched)
+                            "
+                            class="alert alert-danger"
+                            >
+                            <div *ngIf="mobile.errors?.['required']">
+                                Mobile is required.
+                            </div>
+
+                             <div *ngIf="mobile.errors?.['pattern']">
+                                Invalid Mobile.
+                            </div>
+                            
+                        </div>
+                        
+                     </div>
+
+                </div>
+                <!--Submit button-->
+                <div class="d-grid">
+                    <input type="submit" value="Register" class="btn btn-primary" />
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

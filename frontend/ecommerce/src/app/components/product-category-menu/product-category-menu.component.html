@@ -1,0 +1,24 @@
+<li class="nav-item dropdown">
+    <a
+      class="nav-link dropdown-toggle"
+      href="#"
+      role="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Categories
+    </a>
+    <ul class="dropdown-menu">
+      <div *ngFor="let productCategory of productCategories">
+        <li>
+          <a
+            class="dropdown-item"
+            routerLink="/category/{{ productCategory.id }}"
+          >
+            {{ productCategory.categoryName }}
+          </a>
+        </li>
+        <li><hr class="dropdown-divider" /></li>
+      </div>
+    </ul>
+  </li>
